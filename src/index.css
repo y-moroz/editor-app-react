@@ -17,3 +17,7 @@ footer {
 #root {
   height: 100%;
 }
+
+:root {
+  --content-width: 600px;
+}
