@@ -4,7 +4,7 @@ import './FileZone.css';
 function FileZone(props) {
   return (
     <div id="file-zone">
-      <div id="file" contentEditable={true}>
+      <div id="file" contentEditable={true} suppressContentEditableWarning>
         {props.children}
       </div>
     </div>
