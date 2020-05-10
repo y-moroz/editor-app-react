@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './FileZone.css';
 
-function FileZone(props) {
+const FileZone = forwardRef((props, ref) => {
   return (
-    <div id="file-zone">
+    <div id="file-zone" ref={ref}>
       <div id="file" contentEditable={true} suppressContentEditableWarning>
         {props.children}
       </div>
     </div>
   );
-}
+});
 
 export default FileZone;
