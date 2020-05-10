@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useLayoutEffect, useRef } from 'react';
 import useConstant from 'use-constant';
 import { useSearchSynonyms } from './hooks';
 import './Synonyms.css';
-import { replaceSelectedText } from '../../shared/selection-helpers';
+import SelectionService  from '../../shared/selection.service';
 import { EditorSelectionContext } from '../../TextEditor';
 
 function Synonyms() {
@@ -45,7 +45,7 @@ function Synonyms() {
               <button
                 type="button"
                 className="synonyms-list__button"
-                onClick={() => replaceSelectedText(word)}
+                onClick={() => SelectionService.replaceSelectedText(word)}
               >{word}</button>
             </li>
           ))}

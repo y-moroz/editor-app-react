@@ -10,6 +10,15 @@ import {
   FaStrikethrough,
   FaUnderline
 } from 'react-icons/fa';
+import {
+  Bold, Indent,
+  Italic,
+  JustifyCenter,
+  JustifyFull,
+  JustifyLeft, JustifyRight, Outdent, RemoveFormat,
+  StrikeThrough,
+  Underline
+} from '../../constants/editor-commands';
 
 const ALIGN_ACTIONS_GROUP_ID = 1;
 const INDENT_ACTIONS_GROUP_ID = 2;
@@ -18,7 +27,7 @@ const GENERAL_ACTIONS_GROUP_ID = 3;
 const BOLD_ACTION = {
   component: SimpleAction,
   props: {
-    command: 'bold',
+    command: Bold,
     icon: FaBold
   }
 };
@@ -26,7 +35,7 @@ const BOLD_ACTION = {
 const ITALIC_ACTION = {
   component: SimpleAction,
   props: {
-    command: 'italic',
+    command: Italic,
     icon: FaItalic
   }
 };
@@ -34,7 +43,7 @@ const ITALIC_ACTION = {
 const UNDERLINE_ACTION = {
   component: SimpleAction,
   props: {
-    command: 'underline',
+    command: Underline,
     icon: FaUnderline
   }
 };
@@ -42,7 +51,7 @@ const UNDERLINE_ACTION = {
 const STRIKE_THROUGH_ACTION = {
   component: SimpleAction,
   props: {
-    command: 'strikeThrough',
+    command: StrikeThrough,
     icon: FaStrikethrough
   }
 };
@@ -51,7 +60,7 @@ const ALIGN_JUSTIFY_ACTION = {
   groupId: ALIGN_ACTIONS_GROUP_ID,
   component: SimpleAction,
   props: {
-    command: 'justifyFull',
+    command: JustifyFull,
     icon: FaAlignJustify
   }
 };
@@ -60,7 +69,7 @@ const ALIGN_LEFT_ACTION = {
   groupId: ALIGN_ACTIONS_GROUP_ID,
   component: SimpleAction,
   props: {
-    command: 'justifyLeft',
+    command: JustifyLeft,
     icon: FaAlignLeft
   }
 };
@@ -69,7 +78,7 @@ const ALIGN_CENTER_ACTION = {
   groupId: ALIGN_ACTIONS_GROUP_ID,
   component: SimpleAction,
   props: {
-    command: 'justifyCenter',
+    command: JustifyCenter,
     icon: FaAlignCenter
   }
 };
@@ -78,7 +87,7 @@ const ALIGN_RIGHT_ACTION = {
   groupId: ALIGN_ACTIONS_GROUP_ID,
   component: SimpleAction,
   props: {
-    command: 'justifyRight',
+    command: JustifyRight,
     icon: FaAlignRight
   }
 };
@@ -87,7 +96,7 @@ const INDENT_INCREASE_ACTION = {
   groupId: INDENT_ACTIONS_GROUP_ID,
   component: SimpleAction,
   props: {
-    command: 'indent',
+    command: Indent,
     icon: FaIndent
   }
 };
@@ -96,7 +105,7 @@ const INDENT_DECREASE_ACTION = {
   groupId: INDENT_ACTIONS_GROUP_ID,
   component: SimpleAction,
   props: {
-    command: 'outdent',
+    command: Outdent,
     icon: FaOutdent
   }
 };
@@ -105,7 +114,7 @@ const CLEAR_FORMAT_ACTION = {
   groupId: GENERAL_ACTIONS_GROUP_ID,
   component: SimpleAction,
   props: {
-    command: 'removeFormat',
+    command: RemoveFormat,
     icon: FaRemoveFormat
   }
 };

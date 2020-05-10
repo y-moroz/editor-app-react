@@ -3,7 +3,7 @@ import './App.css';
 import PLUGINS from './text-editor/plugins';
 import { groupBy, isNil } from 'ramda';
 import TextEditor from './text-editor/TextEditor';
-import getMockText from './text.service';
+import { getMockText } from './text.service';
 
 const groupedPlugins = groupBy(
   plugin => String(!isNil(plugin.groupId) ? plugin.groupId : 0),

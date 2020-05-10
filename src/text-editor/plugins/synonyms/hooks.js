@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import useConstant from 'use-constant';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
-import SynonymsApi from './synonyms-api';
+import { loadSynonyms } from './synonyms-api';
 import { useAsync } from 'react-async-hook';
 
 const useSearchSynonyms = () => {
   const [text, setText] = useState('');
 
-  const debouncedLoadSynonyms = useConstant(() => AwesomeDebouncePromise(SynonymsApi.loadSynonyms, 300));
+  const debouncedLoadSynonyms = useConstant(() => AwesomeDebouncePromise(loadSynonyms, 300));
 
   const synonyms = useAsync(
     async text => {
