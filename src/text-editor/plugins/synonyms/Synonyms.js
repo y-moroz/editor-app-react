@@ -1,25 +1,23 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useRef } from 'react';
 import useConstant from 'use-constant';
 import { useSearchSynonyms } from './hooks';
 import './Synonyms.css';
 import { replaceSelectedText } from '../../shared/selection-helpers';
+import { EditorSelectionContext } from '../../TextEditor';
 
 function Synonyms() {
   const {synonyms, setText} = useSearchSynonyms();
   const listRefContainer = useRef(null);
+  const selectionContext = useContext(EditorSelectionContext);
 
-  const selectionChangeListener = useConstant(() => () => {
-    const selection = document.getSelection();
+  const selectionChangeListener = useConstant(() => (event, selection) => {
     if (selection) {
       setText(selection.toString());
     }
   });
 
   useEffect(
-    () => {
-      document.addEventListener('selectionchange', selectionChangeListener);
-      return () => document.removeEventListener('selectionchange', selectionChangeListener);
-    },
+    () => selectionContext.registerSelectionChangeListener(selectionChangeListener),
     []
   );
 
