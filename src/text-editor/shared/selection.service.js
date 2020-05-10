@@ -13,6 +13,6 @@ const replaceSelectedText = text => {
   }
 }
 
-export {
+export default {
   replaceSelectedText
 }

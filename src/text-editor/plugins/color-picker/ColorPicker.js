@@ -4,13 +4,15 @@ import { FaPalette } from 'react-icons/fa';
 import './ColorPicker.css';
 import { EditorSelectionContext } from '../../TextEditor';
 import useConstant from 'use-constant';
+import TextFormatService from '../../shared/text-format.service';
+import { ForeColor, StyleWithCSS } from '../../constants/editor-commands';
 
 function ColorPicker() {
   const [opened, setOpened] = useState(false);
   const [color, setColor] = useState(null);
   const editorSelectionContext = useContext(EditorSelectionContext);
 
-  const selectionChangeListener = useConstant(() => () => setColor(document.queryCommandValue('foreColor')));
+  const selectionChangeListener = useConstant(() => () => setColor(TextFormatService.queryCommandValue('foreColor')));
 
   useEffect(
     () => editorSelectionContext.registerSelectionChangeListener(selectionChangeListener),
@@ -18,9 +20,9 @@ function ColorPicker() {
   );
 
   const onColorSelected = (color) => {
-    document.execCommand('styleWithCSS', true);
-    document.execCommand('foreColor', true, color.hex);
-    document.execCommand('styleWithCSS', false);
+    TextFormatService.execCommand(StyleWithCSS, true);
+    TextFormatService.execCommand(ForeColor, color.hex);
+    TextFormatService.execCommand(StyleWithCSS, false);
     setOpened(false);
   }
   return (

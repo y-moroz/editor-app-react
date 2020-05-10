@@ -8,6 +8,6 @@ const loadSynonyms = async word => {
   return response.json();
 };
 
-export default {
+export {
   loadSynonyms
 };
