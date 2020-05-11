@@ -18,7 +18,7 @@ function Synonyms() {
 
   useEffect(
     () => selectionContext.registerSelectionChangeListener(selectionChangeListener),
-    []
+    [selectionContext, selectionChangeListener]
   );
 
   useLayoutEffect(

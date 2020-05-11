@@ -16,7 +16,7 @@ function SimpleAction(props) {
 
   useEffect(
     () => editorSelectionContext.registerSelectionChangeListener(selectionChangeListener),
-    []
+    [editorSelectionContext, selectionChangeListener]
   );
 
   return (

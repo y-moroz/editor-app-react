@@ -12,11 +12,11 @@ function ColorPicker() {
   const [color, setColor] = useState(null);
   const editorSelectionContext = useContext(EditorSelectionContext);
 
-  const selectionChangeListener = useConstant(() => () => setColor(TextFormatService.queryCommandValue('foreColor')));
+  const selectionChangeListener = useConstant(() => () => setColor(TextFormatService.queryCommandValue(ForeColor)));
 
   useEffect(
     () => editorSelectionContext.registerSelectionChangeListener(selectionChangeListener),
-    []
+    [editorSelectionContext, selectionChangeListener]
   );
 
   const onColorSelected = (color) => {
